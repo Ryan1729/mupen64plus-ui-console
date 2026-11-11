@@ -1,3 +1,14 @@
+===============================================================================
+-------------------------------------------------------------------------------
+Mupen64plus-ui-console Archipelago BizHawk 
+-------------------------------------------------------------------------------
+===============================================================================
+
+A fork of Mupen64plus-ui-console to add support for connecting to Archipelago implmentations for games that use the BizHawk client.
+
+See https://github.com/Ryan1729/mupen64plus-core/tree/Ryan1729/AP-BizHawk for more details
+
+Updtream README follows:
 
 ===============================================================================
 -------------------------------------------------------------------------------
