@@ -391,6 +391,7 @@ static void printUsage(const char *progname)
            "    --core-compare-recv    : use the Core Comparison debugging feature, in data receiving mode\n"
            "    --nosaveoptions        : do not save the given command-line options in configuration file\n"
            "    --pif (filepath)       : use a binary PIF ROM (filepath) instead of HLE PIF\n"
+           "    --bizhawk              : open Archipelago BizHawk server (requires core lib built with this feature)\n"
            "    --verbose              : print lots of information\n"
            "    --help                 : see this help message\n\n"
            "(plugin-spec):\n"
@@ -759,6 +760,14 @@ static m64p_error ParseCommandLineMain(int argc, const char **argv)
                 DebugMessage(M64MSG_ERROR, "core failed to open PIF ROM file '%s'.", argv[i+1]);
             }
             i++;
+        }
+        else if (strcmp(argv[i], "--bizhawk") == 0)
+        {
+            m64p_error bizhawk_status = (*CoreDoCommand)(M64CMD_ARCHIPELAGO_BIZHAWK_START, 0, NULL);
+            if (bizhawk_status != M64ERR_SUCCESS)
+            {
+                DebugMessage(M64MSG_ERROR, "core failed to start Archipelago BizHawk client connection. %d", bizhawk_status);
+            }
         }
         else if (ArgsLeft == 0)
         {
