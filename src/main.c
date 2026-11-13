@@ -763,7 +763,8 @@ static m64p_error ParseCommandLineMain(int argc, const char **argv)
         }
         else if (strcmp(argv[i], "--bizhawk") == 0)
         {
-            m64p_error bizhawk_status = (*CoreDoCommand)(M64CMD_ARCHIPELAGO_BIZHAWK_START, 0, NULL);
+            // This imples that you'll want to have the verbose flag before the bizhawk flag.
+            m64p_error bizhawk_status = (*CoreDoCommand)(M64CMD_ARCHIPELAGO_BIZHAWK_START, g_Verbose, NULL);
             if (bizhawk_status != M64ERR_SUCCESS)
             {
                 DebugMessage(M64MSG_ERROR, "core failed to start Archipelago BizHawk client connection. %d", bizhawk_status);
